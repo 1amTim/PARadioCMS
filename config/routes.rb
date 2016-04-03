@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get 'mp3files/index'
+
+  get 'mp3files/new'
+
+  get 'mp3files/create'
+
+  get 'mp3files/destroy'
+
+  PARadioCMS::Application.routes.draw do
+     resources :mp3files, only: [:index, :new, :create, :destroy]
+     root "mp3files#index"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
